@@ -145,8 +145,13 @@ Luego modifica `PQ_ComplHeap_percolateDown.h` para usar esas funciones auxiliare
 Responde:
 
 1. ¿Por qué conviene expresar `parent`, `left`, `right` y pruebas de frontera como funciones pequeñas?
+Por rque lo encapsulan en un solo lugar brindando mejor entendimiento sin tener que deducir 
+porque.  Si en algun momento deseamos hacer un cambio se corrige en un solo lugar y no en 
+cada bucle y presenta menos errores de frontera.
 2. ¿Qué ventaja tiene `constexpr` frente a macros?
+Respeta el sistema de tipos a diferencia de los macros.
 3. ¿Qué caso borde aparece cuando el nodo tiene solo hijo izquierdo?
+El caso borde que aparece es el del ultimo nodo interno cuando el heap tiene un numero par de elementos: ese nodo cumple 2i+1 < n (si tiene hijo izquierdo) pero 2i+2 == n (su hijo derecho cae fuera del arreglo). Por ejemplo, en un heap de n = 6, el nodo i = 2 tiene hijo izquierdo en el índice 5 pero su hijo derecho sería el índice 6, que no existe.
 4. ¿Qué condición identifica una hoja en la representación implícita?
 5. ¿Qué cambió en `percolateDown` después de usar las funciones auxiliares?
 
