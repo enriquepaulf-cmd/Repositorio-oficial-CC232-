@@ -23,6 +23,7 @@ function(cc232_add_sem6_target target_name source_file)
 endfunction()
 
 cc232_add_sem6_target(sem6_demo_pq_complheap_basico "demos/demo_pq_complheap_basico.cpp")
+cc232_add_sem6_target(sem6_demo_percolate_up_count "demos/demo_percolate_up_count.cpp")
 cc232_add_sem6_target(sem6_demo_heapify_floyd "demos/demo_heapify_floyd.cpp")
 cc232_add_sem6_target(sem6_demo_heapsort "demos/demo_heapsort.cpp")
 cc232_add_sem6_target(sem6_demo_left_heap_merge "demos/demo_left_heap_merge.cpp")
