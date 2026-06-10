@@ -10,14 +10,12 @@
 
 ## Día 1 -
 
-- **Lectura del problema:**
-- **Solución inicial considerada:**
-- **Elección de estructura:**
-- **Operaciones implementadas:**
-- **Errores encontrados:**
-- **Pruebas agregadas:**
-- **Refactorizaciones:**
-- **Commits relacionados:**
+- **Lectura del problema**
+- **Creacion del repo**
+- **Primera intuicion de como resolver el problema(borrador)**
+- **Lee datos reales, calcula la mediana de cada ventana ordenandola desde cero, e imprime en el formato pedido.**
+- **Primer Demo para entender y demostrar visualmente como se calcula la mediana paso a paso**
+- **Pendientes: Probar una solucion mas optima, probar con dos heaps**
 
 ---
 
