@@ -1,6 +1,7 @@
-#include <algorithm>
 #include <iostream>
 #include <vector>
+
+#include "SlidingWindowMedian.h"
 
 int main() {
   std::ios_base::sync_with_stdio(false);
@@ -16,11 +17,18 @@ int main() {
     std::cin >> x[i];
   }
 
-  for (int i = 0; i + k <= n; ++i) {
-    std::vector<int> ventana(x.begin() + i, x.begin() + i + k);
-    std::sort(ventana.begin(), ventana.end());
-    int mediana = ventana[(k - 1) / 2];   //mediana inferior
-    std::cout << mediana << (i + k < n ? ' ' : '\n');
+//Dos heaps + lazy deletion: O(n log k) en vez de la fuerza bruta
+  pc3::SlidingWindowMedian ventana;
+  for (int i = 0; i < k; ++i) {     //primera ventana
+    ventana.add(x[i]);
   }
+  std::cout << ventana.median();
+
+  for (int i = k; i < n; ++i) {        //desliza: entra x[i], sale x[i-k]
+    ventana.add(x[i]);
+    ventana.remove(x[i - k]);
+    std::cout << ' ' << ventana.median();
+  }
+  std::cout << '\n';
   return 0;
 }

@@ -5,8 +5,22 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
-# Programa principal (lee de stdin, formato CSES)
-add_executable(pc3_main src/main.cpp)
+include(CTest)
 
-# Demo ilustrativo con el ejemplo del enunciado
+# Headers propios + reuso de la libreria del curso (Semana 5: BinaryHeap).
+set(PC3_INCLUDES
+  "${CMAKE_CURRENT_SOURCE_DIR}/include"
+  "${CMAKE_CURRENT_SOURCE_DIR}/../../Libreria_cc232/Semana5/include"
+)
+
+# Programa principal (lee de stdin, formato CSES).
+add_executable(pc3_main src/main.cpp)
+target_include_directories(pc3_main PRIVATE ${PC3_INCLUDES})
+
+# Demo ilustrativo (solucion ingenua, ejemplo fijo).
 add_executable(demo_sliding_window_first demos/demo_sliding_window_first.cpp)
+
+# Pruebas: comparan la version eficiente contra la fuerza bruta.
+add_executable(pc3_test tests/test_median.cpp)
+target_include_directories(pc3_test PRIVATE ${PC3_INCLUDES})
+add_test(NAME pc3_test COMMAND pc3_test)
