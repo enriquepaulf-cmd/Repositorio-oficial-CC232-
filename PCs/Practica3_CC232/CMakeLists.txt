@@ -24,3 +24,13 @@ add_executable(demo_sliding_window_first demos/demo_sliding_window_first.cpp)
 add_executable(pc3_test tests/test_median.cpp)
 target_include_directories(pc3_test PRIVATE ${PC3_INCLUDES})
 add_test(NAME pc3_test COMMAND pc3_test)
+
+# Pruebas de casos borde (k=1, k=n, todos iguales, k par, lazy deletion).
+add_executable(pc3_test_borde tests/test_casos_borde.cpp)
+target_include_directories(pc3_test_borde PRIVATE ${PC3_INCLUDES})
+add_test(NAME pc3_test_borde COMMAND pc3_test_borde)
+
+# Benchmark de tiempos (no es prueba de ctest: solo mide rendimiento).
+add_executable(pc3_benchmark benchmark/benchmark_median.cpp)
+target_include_directories(pc3_benchmark PRIVATE ${PC3_INCLUDES})
+target_compile_options(pc3_benchmark PRIVATE -O2)

@@ -7,7 +7,7 @@
 
 namespace {
 
-//Solucion inicial: ordena cada ventana y toma la posicion (k-1)/2.
+//Solucion inicial: ordena cada ventana y toma la posicion (k-1)/2
 std::vector<int> medianasFuerzaBruta(const std::vector<int>& x, int k) {
   std::vector<int> salida;
   for (int i = 0; i + k <= static_cast<int>(x.size()); ++i) {
@@ -18,7 +18,7 @@ std::vector<int> medianasFuerzaBruta(const std::vector<int>& x, int k) {
   return salida;
 }
 
-//Solucion mejorada: dos heaps + lazy deletion.
+//Solucion mejorada: dos heaps + lazy deletion
 std::vector<int> medianasDosHeaps(const std::vector<int>& x, int k) {
   pc3::SlidingWindowMedian ventana;
   std::vector<int> salida;
@@ -37,8 +37,7 @@ std::vector<int> medianasDosHeaps(const std::vector<int>& x, int k) {
 }  // namespace
 
 int main() {
-//1)Caso del enunciado.
-  {
+  {                                //1)Caso del enunciado
     std::vector<int> x{2, 4, 3, 5, 8, 1, 2, 1};
     std::vector<int> esperado{3, 4, 5, 5, 2, 1};
     if (medianasDosHeaps(x, 3) != esperado) {
@@ -47,7 +46,7 @@ int main() {
     }
   }
 
-//2) Comparacion aleatoria contra fuerza bruta (incluye duplicados y k par/impar).
+//2)Comparacion aleatoria contra fuerza bruta (incluye duplicados y k par/impar)
   std::srand(12345);
   for (int t = 0; t < 3000; ++t) {
     int n = 1 + std::rand() % 40;
