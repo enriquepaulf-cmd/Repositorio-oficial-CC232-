@@ -1,0 +1,13 @@
+# Evidencia de casos borde - PC3 CC232
+# Comando ejecutado:
+#   ./build/pc3_test_borde.exe
+
+OK   k=1 (ventana minima)
+OK   k=n (una sola ventana)
+OK   todos iguales
+OK   k par (mediana inferior)
+OK   k par = n
+OK   n=1 k=1
+OK   lazy deletion con repetidos
+
+OK: todos los casos borde pasaron

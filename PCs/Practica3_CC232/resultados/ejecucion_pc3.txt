@@ -1,0 +1,19 @@
+#Evidencia de ejecucion - PC3 CC232
+
+## 1)Programa principal con el ejemplo del enunciado
+# Comando ejecutado: echo "8 3 2 4 3 5 8 1 2 1" | ./build/pc3_main.exe
+# Entrada: 8 3 | 2 4 3 5 8 1 2 1
+# Salida : 3 4 5 5 2 1
+
+## 2)Benchmark: fuerza bruta vs dos heaps
+# Comando ejecutado: ./build/pc3_benchmark.exe
+
+Benchmark: fuerza bruta O(n*k*log k) vs dos heaps O(n log k)
+
+    n        k    bruta(ms)    heaps(ms)   coinciden
+  1000     500     16.27        0.19        si
+  2000     1000     28.76        0.35        si
+  4000     2000     137.19        0.57        si
+  8000     4000     545.85        1.07        si
+
+Caso grande (solo dos heaps): n=200000 k=100000 -> 34.00 ms

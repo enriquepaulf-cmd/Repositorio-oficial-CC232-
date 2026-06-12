@@ -1,0 +1,14 @@
+# Evidencia de pruebas (ctest) - PC3 CC232
+# Problema: CSES 1076 - Sliding Window Median
+# Comando ejecutado:
+#   ctest --test-dir build --output-on-failure
+
+Test project C:/Users/Enrique/CC-232-PaulFLoresEnriqueAlejandro/PCs/Practica3_CC232/build
+    Start 1: pc3_test
+1/2 Test #1: pc3_test .........................   Passed    0.12 sec
+    Start 2: pc3_test_borde
+2/2 Test #2: pc3_test_borde ...................   Passed    0.06 sec
+
+100% tests passed, 0 tests failed out of 2
+
+Total Test time (real) =   0.19 sec
