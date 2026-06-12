@@ -3,13 +3,13 @@
 #include <functional>
 #include <unordered_map>
 
-#include "BinaryHeap.h"  //de Libreria_cc232/Semana5
+#include "BinaryHeap.h"  //de la Libreria_cc232/Semana5
 
 namespace pc3 {
 
 class SlidingWindowMedian {
  public:
-  // Inserta x en la ventana
+//Inserta x en la ventana
   void add(int x) {
     if (small_.empty() || x <= small_.top()) {
       small_.add(x);
@@ -21,7 +21,7 @@ class SlidingWindowMedian {
     rebalance();
   }
 
-  //Marca x(que sale de la ventana) para borrado diferido
+//Marca x(que sale de la ventana) para borrado diferido
   void remove(int x) {
     ++delayed_[x];
     if (x <= small_.top()) {
@@ -34,20 +34,28 @@ class SlidingWindowMedian {
     rebalance();
   }
 
-  //Mediana inferior de la ventana actual.
+//Mediana inferior de la ventana actual.
   int median() const { return small_.top(); }
 
   int size() const { return smallSize_ + largeSize_; }
   bool empty() const { return size() == 0; }
 
+//Verifica el invariante: tamaños balanceados y que el tope de small_ no supere al de large_.
+  bool cumpleInvariante() const {
+    if (smallSize_ < 0 || largeSize_ < 0) return false;
+    if (smallSize_ != largeSize_ && smallSize_ != largeSize_ + 1) return false;
+    if (smallSize_ > 0 && largeSize_ > 0 && small_.top() > large_.top()) return false;
+    return true;
+  }
+
  private:
-  ods::BinaryHeap<int, std::greater<int>> small_; //max-heap (mitad baja)
-  ods::BinaryHeap<int, std::less<int>> large_;    //min-heap (mitad alta)
-  std::unordered_map<int, int> delayed_;     //valores pendientes de borrar
+  ods::BinaryHeap<int, std::greater<int>> small_;    //max-heap (mitad baja)
+  ods::BinaryHeap<int, std::less<int>> large_;       //min-heap (mitad alta)
+  std::unordered_map<int, int> delayed_;         //valores pendientes de borrar
   int smallSize_ = 0;
   int largeSize_ = 0;
 
-  //Descarta del tope de h los elementos ya marcados como diferidos.
+//Descarta del tope de h los elementos ya marcados como diferidos.
   template <class Heap>
   void prune(Heap& h) {
     while (!h.empty()) {
@@ -63,7 +71,7 @@ class SlidingWindowMedian {
     }
   }
 
-  //Restaura el invariante de tamanos moviendo un tope entre heaps.
+//Restaura el invariante de tamaños moviendo un tope entre heaps.
   void rebalance() {
     if (smallSize_ > largeSize_ + 1) {
       large_.add(small_.top());

@@ -80,9 +80,11 @@ Escrib dos pruebas. test_median.cpp corre el caso del enunciado mas 3000 casos a
 
 18. **¿Qué cambiaste durante el bloque sin cortes?**
 
+Agregue un metodo cumpleInvariante a la estructura SlidingWindowMedian, que revisa que los tamaños esten balanceados, es decir smallSize_ igual a largeSize_ o uno mas, y que el tope de small_ no sea mayor que el tope de large_. Tambien agregue una prueba nueva en tests/test_invariante.cpp que, despues de cada ventana, llama a cumpleInvariante y compara la mediana contra la fuerza bruta, y la registre en ctest.
 
 19. **¿Cómo sabes que el cambio no rompió la solución?**
 
+Porque volvi a compilar y a correr ctest, y las tres pruebas pasan, incluida la nueva del invariante, ademas la salida del programa con el ejemplo sigue siendo 3 4 5 5 2 1. Como cumpleInvariante da true en todas las ventanas y la mediana sigue coincidiendo con la fuerza bruta, se que el cambio no altero el comportamiento.
 
 20. **¿Qué demuestra que no es una solución de caja negra?**
 
@@ -110,4 +112,5 @@ Lo que domina el tiempo por ventana son las operaciones de heap dentro de add y 
 
 > Agregar una prueba con `k` par e impar y explicar qué mediana se usa.
 
+La prueba esta en demos/demo_par_impar.cpp. La mediana siempre es el elemento de la posicion (k-1)/2 al ordenar la ventana, tanto para k par como impar. Con k impar la ventana {2,3,4} tiene un solo elemento central y la mediana es 3. Con k par la ventana {1,2,3,4} tiene dos elementos centrales, 2 y 3, y se usa el menor de los dos, es decir la mediana inferior, que es 2 y no el promedio 2.5. Esto tambien queda cubierto en tests/test_casos_borde.cpp con los casos de k par.
 

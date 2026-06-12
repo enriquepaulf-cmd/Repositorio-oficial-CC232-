@@ -39,13 +39,15 @@
 - **El benchmark resuelve el caso grande (n=200000, k=100000) en milisegundos, donde la fuerza bruta ya no escala**
 - **Registro de los nuevos targets en CMakeLists.txt: pc3_test_borde (en ctest) y pc3_benchmark (con -O2)**
 - **Generación de evidencias en resultados/: tests_pc3.txt, casos_borde.txt y ejecucion_pc3.txt con comandos y salidas reales**
-- **Pendientes: llenar README.md y docs/respuestas_obligatorias.md, y preparar la modificación en vivo del video**
+- **Respuesta a preguntas obligatorias**
+- **Pendientes: llenar README.md**
 
 ---
 
-## Día 4 -
+## Día 4 - 2026-06-12
 
-- **Avance del día:**
-- **Preparación del bloque de modificación grabada:**
-- **Pruebas agregadas:**
-- **Commits relacionados:**
+- **Se agrego el metodo cumpleInvariante a la estructura**
+- **Prueba nueva test_invariante.cpp que revisa el invariante en cada ventana**
+- **Demo del reto demo_par_impar.cpp con k par e impar**
+- **ctest pasa 3 de 3**
+- **Se completaron las respuestas 18, 19 y el reto**
